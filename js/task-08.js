@@ -1,6 +1,4 @@
 const form = document.querySelector('.login-form');
-console.log(form);
-
 form.addEventListener('submit', handlerSubmit);
 
 function handlerSubmit(evt) {
@@ -11,19 +9,12 @@ function handlerSubmit(evt) {
         password: password.value
     }
 
-    // const data = Object.keys(evt.currentTarget.elements).reduce((acc, item) => {
-    //     if (isNaN(item)) {
-    //         acc[item] = evt.currentTarget.elements[item].value;
-    //     }
-
-    //     return acc;
-    // }, {})
-
-    console.log(data);
-
-   if (!data.password || !data.email) {
-        alert(
+     if (!data.password || !data.email) {
+      return  alert(
             "Всі поля повинні бути заповнені");
-   }
+     }
+    
+    console.log(data);
     evt.currentTarget.reset();
+    
 }
