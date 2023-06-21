@@ -11,21 +11,21 @@ const refs = {
  divEl: document.querySelector('#boxes')
 }
 
-refs.input.addEventListener('blur', handlerInput);
+refs.input.addEventListener('blur', handlerInputblur);
 
-function handlerInput(evt) {   
+function handlerInputblur(evt) {   
   const amount = evt.currentTarget.value;
 
-  refs.createBtn.addEventListener('click', handlerClick);
+  refs.createBtn.addEventListener('click', handlerCreateBtnClick);
 
-  function handlerClick() {
+  function handlerCreateBtnClick() {
     createBoxes(amount);
-  };
+  }
   
   refs.destroyBtn.addEventListener('click', () => {
     destroyBoxes();
-    refs.createBtn.removeEventListener('click', handlerClick);
-  });
+    refs.createBtn.removeEventListener('click', handlerCreateBtnClick);
+  })
   
 }
 
@@ -42,7 +42,7 @@ function createBoxes(amount) {
     div.style.height = `${height}px`;
     div.style.backgroundColor = getRandomHexColor();
     divs.push(div);
-  };
+  }
 
   refs.divEl.append(...divs);
 }
